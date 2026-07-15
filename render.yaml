@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: rising-star-api
+    runtime: node
+    rootDir: Backend
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: COOKIE_EXPIRES_DAYS
+        value: 7
+      - key: CLIENT_URL
+        sync: false
+      - key: EMAIL_HOST
+        value: smtp.gmail.com
+      - key: EMAIL_PORT
+        value: 587
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: EMAIL_FROM_NAME
+        value: Rising Star Public School
+      - key: ADMIN_NOTIFY_EMAIL
+        sync: false
+      - key: SEED_ADMIN_EMAIL
+        value: admin@risingstarschool.edu.in
+      - key: SEED_ADMIN_PASSWORD
+        sync: false

@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: theme("fontFamily.sans");
+    background-color: theme("colors.paper");
+    color: theme("colors.ink.DEFAULT");
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: theme("fontFamily.heading");
+    letter-spacing: -0.02em;
+  }
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply relative overflow-hidden isolate text-white font-semibold py-2.5 px-5 rounded-full transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0;
+    background-image: linear-gradient(to right, #9b2335, #7b1c2a);
+    box-shadow: 0 0 0 1px rgba(155, 35, 53, 0.08), 0 8px 24px -8px rgba(155, 35, 53, 0.2);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 16px 40px -12px rgba(155, 35, 53, 0.18);
+  }
+
+  .btn-outline {
+    @apply relative border border-neutral-200 text-ink font-semibold py-2.5 px-5 rounded-full transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98];
+  }
+
+  .btn-outline:hover {
+    border-color: rgba(155, 35, 53, 0.35);
+    background-color: rgba(155, 35, 53, 0.04);
+    color: #9b2335;
+  }
+
+  .btn-ghost {
+    @apply text-ink font-medium transition-colors duration-200;
+  }
+
+  .btn-ghost:hover {
+    color: #9b2335;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-28 px-4;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .glass {
+    @apply bg-white/75 backdrop-blur-lg border border-white/50;
+  }
+
+  .glass-dark {
+    @apply bg-ink/75 backdrop-blur-md border border-white/10;
+  }
+
+  .card-outline {
+    @apply border border-neutral-200/80 rounded-2xl bg-white transition-all duration-300 ease-out hover:-translate-y-1;
+  }
+
+  .card-outline:hover {
+    border-color: rgba(155, 35, 53, 0.25);
+    box-shadow: 0 4px 24px -6px rgba(26, 26, 26, 0.08);
+  }
+
+  .nav-link {
+    @apply text-ink/60 transition-all duration-200;
+  }
+
+  .nav-link:hover {
+    color: #9b2335;
+    background-color: rgba(155, 35, 53, 0.05);
+  }
+
+  .nav-link-active {
+    color: #9b2335;
+    background-color: rgba(155, 35, 53, 0.1);
+    @apply font-semibold;
+  }
+
+  .link-hover {
+    @apply relative inline-flex items-center gap-1 font-semibold text-sm transition-colors;
+    color: #9b2335;
+  }
+
+  .link-hover:hover {
+    color: #7b1c2a;
+  }
+
+  .link-hover::after {
+    content: "";
+    @apply absolute -bottom-0.5 left-0 h-[2px] w-0 rounded-full transition-all duration-300;
+    background-color: #9b2335;
+  }
+
+  .link-hover:hover::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.65s ease;
+  }
+  .btn-primary:hover::after {
+    transform: translateX(120%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #9b2335, #2563eb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
