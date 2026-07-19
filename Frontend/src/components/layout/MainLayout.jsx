@@ -9,7 +9,7 @@ import BackgroundFX from "../ui/BackgroundFX";
 
 export default function MainLayout() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ willChange: 'transform' }}>
       <BackgroundFX />
       <ScrollToTopOnNavigate />
       <ScrollProgress />
@@ -17,7 +17,7 @@ export default function MainLayout() {
         <AdmissionBanner />
         <Navbar />
       </div>
-      <main className="flex-1 pt-[96px] lg:pt-[108px]">
+      <main className="flex-1 pt-[96px] lg:pt-[108px]" style={{ willChange: 'contents', transform: 'translateZ(0)' }}>
         <Outlet />
       </main>
       <Footer />

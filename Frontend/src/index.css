@@ -18,6 +18,15 @@
     -moz-osx-font-smoothing: grayscale;
     /* Better mobile scrolling */
     -webkit-overflow-scrolling: touch;
+    /* Prevent layout shifts */
+    overflow-x: hidden;
+  }
+  
+  /* Optimize images globally */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
   h1,
   h2,

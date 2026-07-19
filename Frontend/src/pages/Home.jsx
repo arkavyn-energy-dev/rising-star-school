@@ -46,7 +46,13 @@ function HeroVisual({ settings }) {
       >
         <TiltCard className="rounded-[2rem] overflow-hidden border border-white/60 shadow-glass" strength={6}>
           <div className="relative h-[420px]">
-            <ImageWithFallback src="/school-images/ecdad21b-0b6a-4838-bd5a-b5a87813f7c4.jpg" alt="Rising Star Public School campus" className="absolute inset-0 w-full h-full object-cover" />
+            <ImageWithFallback 
+              src="/school-images/ecdad21b-0b6a-4838-bd5a-b5a87813f7c4.jpg" 
+              alt="Rising Star Public School campus" 
+              className="absolute inset-0 w-full h-full object-cover"
+              priority={true}
+              aspectRatio="16/9"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/5 to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 glass rounded-2xl p-4 flex items-center gap-3">
               <div className="w-11 h-11 rounded-xl bg-accent flex items-center justify-center text-white font-heading font-bold flex-shrink-0">
@@ -235,7 +241,12 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "100px" }} transition={{ duration: 0.2 }}>
               <div className="relative rounded-3xl overflow-hidden border border-neutral-200 h-[400px]">
-                <ImageWithFallback src={settings?.aboutContent?.principalPhoto} alt="Principal" className="absolute inset-0 w-full h-full object-cover" />
+                <ImageWithFallback 
+                  src={settings?.aboutContent?.principalPhoto} 
+                  alt="Principal" 
+                  className="absolute inset-0 w-full h-full object-cover"
+                  aspectRatio="4/5"
+                />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink/80 to-transparent p-6">
                   <p className="text-white font-heading font-bold">
                     {settings?.aboutContent?.principalName || "Principal"}
