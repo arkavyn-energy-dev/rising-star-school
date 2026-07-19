@@ -56,7 +56,7 @@ const allowedOrigin =
         }
         callback(new Error(`CORS blocked for origin: ${origin}`));
       }
-    : /^http:\/\/localhost:\d+$/;
+    : /^(http:\/\/localhost:\d+|https:\/\/[a-z0-9-]+\.loca\.lt)$/;
 
 app.use(
   cors({

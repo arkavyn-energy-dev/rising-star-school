@@ -38,3 +38,9 @@ services:
         value: admin@risingstarschool.edu.in
       - key: SEED_ADMIN_PASSWORD
         sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
