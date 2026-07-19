@@ -7,6 +7,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Performance optimizations */
+    -webkit-tap-highlight-color: transparent;
   }
   body {
     font-family: theme("fontFamily.sans");
@@ -14,6 +16,17 @@
     color: theme("colors.ink.DEFAULT");
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Better mobile scrolling */
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Hardware acceleration for animations */
+  * {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
   }
   h1,
   h2,

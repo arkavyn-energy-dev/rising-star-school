@@ -11,6 +11,7 @@ import ImageWithFallback from "../components/ui/ImageWithFallback";
 import TiltCard from "../components/ui/TiltCard";
 import GridBackground from "../components/ui/GridBackground";
 import FacilitiesSection from "../components/ui/FacilitiesSection";
+import { HeroSkeleton, CardSkeleton, StatsSkeleton } from "../components/ui/SkeletonLoader";
 import { useSiteSettings } from "../context/SiteSettingsContext";
 import { useAdmissionModal } from "../context/AdmissionModalContext";
 import { useFetch } from "../hooks/useFetch";
@@ -151,7 +152,24 @@ export default function Home() {
   const { settings, loading: settingsLoading } = useSiteSettings();
   const { data: testimonials } = useFetch(getTestimonials, []);
 
-  if (settingsLoading) return <Loader label="Loading Rising Star Public School..." />;
+  if (settingsLoading) {
+    return (
+      <>
+        <HeroSkeleton />
+        <section className="section-padding bg-paper">
+          <div className="container-custom">
+            <div className="h-8 bg-white/10 rounded w-48 mx-auto mb-12 animate-pulse" />
+            <CardSkeleton count={6} />
+          </div>
+        </section>
+        <section className="section-padding">
+          <div className="container-custom">
+            <StatsSkeleton />
+          </div>
+        </section>
+      </>
+    );
+  }
 
   return (
     <>

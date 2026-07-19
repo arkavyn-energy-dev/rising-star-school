@@ -4,6 +4,7 @@ import ImageWithFallback from "../components/ui/ImageWithFallback";
 import Loader from "../components/ui/Loader";
 import PageHero from "../components/ui/PageHero";
 import TiltCard from "../components/ui/TiltCard";
+import { CardSkeleton, TextSkeleton } from "../components/ui/SkeletonLoader";
 import { useSiteSettings } from "../context/SiteSettingsContext";
 
 const fadeInUp = {
@@ -14,7 +15,19 @@ const fadeInUp = {
 export default function Academics() {
   const { settings, loading } = useSiteSettings();
 
-  if (loading) return <Loader />;
+  if (loading) {
+    return (
+      <>
+        <div className="h-64 bg-ink-soft/20 animate-pulse" />
+        <section className="section-padding">
+          <div className="container-custom space-y-12">
+            <TextSkeleton lines={4} />
+            <CardSkeleton count={4} />
+          </div>
+        </section>
+      </>
+    );
+  }
 
   const academics = settings?.academics || {};
   const programs = settings?.programs || [];
