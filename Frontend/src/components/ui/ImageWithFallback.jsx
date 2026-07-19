@@ -33,9 +33,10 @@ export default function ImageWithFallback({ src, alt, className = "" }) {
       <img
         src={src}
         alt={alt}
-        className={`${className} transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`${className} transition-opacity duration-150 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         loading="lazy"
         decoding="async"
+        fetchpriority="high"
         onLoad={() => setIsLoaded(true)}
         onError={() => setHasError(true)}
       />

@@ -9,7 +9,7 @@ import { TextSkeleton, CardSkeleton } from "../components/ui/SkeletonLoader";
 import { useSiteSettings } from "../context/SiteSettingsContext";
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 10 },
   visible: { opacity: 1, y: 0 },
 };
 
@@ -42,7 +42,7 @@ export default function About() {
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.5 }}>
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.2 }}>
               <SectionHeading kicker="Our Journey" title="Our Story" center={false} />
               <p className="text-ink/60 leading-relaxed mb-6">{about.history}</p>
               <div className="grid grid-cols-2 gap-4">
@@ -61,7 +61,7 @@ export default function About() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.2,  }}
               className="relative"
             >
               <div className="rounded-3xl overflow-hidden border border-neutral-200 h-[350px]">
@@ -106,7 +106,7 @@ export default function About() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
+                transition={{ duration: 0.2,  }}
               >
                 <TiltCard className="card-outline bg-white p-6 text-center h-full">
                   <div className="text-3xl mb-3">{value.icon}</div>
@@ -138,7 +138,7 @@ export default function About() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+              transition={{  }}
             >
               <div className="rounded-3xl overflow-hidden border border-neutral-200 h-[350px]">
                 <ImageWithFallback src={about.directorPhoto} alt="Director" className="w-full h-full object-cover" />
@@ -167,7 +167,7 @@ export default function About() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+              transition={{  }}
               className="order-1 lg:order-2"
             >
               <div className="rounded-3xl overflow-hidden border border-neutral-200 h-[400px]">
@@ -182,3 +182,4 @@ export default function About() {
     </>
   );
 }
+

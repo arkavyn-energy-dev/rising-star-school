@@ -8,7 +8,7 @@ import { CardSkeleton, TextSkeleton } from "../components/ui/SkeletonLoader";
 import { useSiteSettings } from "../context/SiteSettingsContext";
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 10 },
   visible: { opacity: 1, y: 0 },
 };
 
@@ -47,7 +47,7 @@ export default function Admissions() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 0.2 }}
                 className="text-center relative"
               >
                 <div className="w-16 h-16 border border-accent/30 bg-accent/[0.06] text-accent font-heading font-extrabold text-2xl rounded-full flex items-center justify-center mx-auto mb-4">
@@ -126,7 +126,7 @@ export default function Admissions() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.05 }}
+                    transition={{ duration: 0.4 }}
                     className="flex items-center gap-3 text-ink/70"
                   >
                     <div className="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -152,3 +152,4 @@ export default function Admissions() {
     </>
   );
 }
+

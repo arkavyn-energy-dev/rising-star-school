@@ -8,7 +8,7 @@ import { CardSkeleton, TextSkeleton } from "../components/ui/SkeletonLoader";
 import { useSiteSettings } from "../context/SiteSettingsContext";
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 10 },
   visible: { opacity: 1, y: 0 },
 };
 
@@ -54,7 +54,7 @@ export default function Academics() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
+                transition={{ duration: 0.2 }}
               >
                 <TiltCard className="card-outline bg-white overflow-hidden h-full">
                   <div className="relative h-44">
@@ -89,7 +89,7 @@ export default function Academics() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 0.2 }}
               >
                 <TiltCard className="card-outline bg-white p-6 text-center h-full">
                   <div className="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -115,7 +115,7 @@ export default function Academics() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 0.2 }}
               >
                 <TiltCard className="flex gap-4 card-outline bg-white p-6 h-full">
                   <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -134,3 +134,4 @@ export default function Academics() {
     </>
   );
 }
+

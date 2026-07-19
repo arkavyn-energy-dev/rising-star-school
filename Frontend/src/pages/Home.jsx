@@ -18,7 +18,7 @@ import { useFetch } from "../hooks/useFetch";
 import { getTestimonials } from "../services/testimonialService";
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 10 },
   visible: { opacity: 1, y: 0 },
 };
 
@@ -190,8 +190,8 @@ export default function Home() {
                 variants={fadeInUp}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true, margin: "100px" }}
+                transition={{ duration: 0.2 }}
               >
                 <ProgramCard {...program} />
               </motion.div>
@@ -214,8 +214,8 @@ export default function Home() {
                 variants={fadeInUp}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true, margin: "100px" }}
+                transition={{ duration: 0.2 }}
               >
                 <TiltCard className="card-outline bg-white p-6 text-center h-full">
                   <div className="text-4xl mb-4">{item.icon}</div>
@@ -233,7 +233,7 @@ export default function Home() {
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.5 }}>
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "100px" }} transition={{ duration: 0.2 }}>
               <div className="relative rounded-3xl overflow-hidden border border-neutral-200 h-[400px]">
                 <ImageWithFallback src={settings?.aboutContent?.principalPhoto} alt="Principal" className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink/80 to-transparent p-6">
@@ -244,7 +244,7 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "100px" }} transition={{ duration: 0.2 }}>
               <SectionHeading kicker="From the Desk of" title="Principal's Message" center={false} />
               <p className="text-ink/60 leading-relaxed mb-6">{settings?.aboutContent?.principalMessage}</p>
               <div className="flex items-center gap-4">
@@ -271,8 +271,8 @@ export default function Home() {
                   variants={fadeInUp}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  viewport={{ once: true, margin: "100px" }}
+                  transition={{ duration: 0.2 }}
                 >
                   <TestimonialCard {...t} />
                 </motion.div>
