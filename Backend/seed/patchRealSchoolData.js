@@ -175,21 +175,21 @@ const pastEvents = [
     description:
       "A full-day sports celebration with cricket, badminton, carrom, running races, and kabaddi. Nursery to Class 5 competed standard-wise; older students participated in team events. Certificates awarded to winners.",
     isUpcoming: false,
-    imageUrl: `${IMG}/81a5ff6a-8f37-45bb-9e29-5d624bdc6046.jpg`,
+    imageUrl: `${IMG}/img-8-playground.jpg`,
   },
   {
     title: "Inter-Class Cricket Tournament",
     date: new Date("2025-11-20"),
     description: "Class-wise cricket matches promoting teamwork and sportsmanship. Students from Class 4 onwards participated enthusiastically.",
     isUpcoming: false,
-    imageUrl: `${IMG}/e89a1534-e26b-4a49-a60e-bf133a7a5218.jpg`,
+    imageUrl: `${IMG}/img-4-sports.jpg`,
   },
   {
     title: "Badminton & Carrom Competition",
     date: new Date("2025-10-08"),
     description: "Indoor sports event featuring badminton singles/doubles and carrom tournaments. Open participation with prizes for top performers.",
     isUpcoming: false,
-    imageUrl: `${IMG}/388ccf81-60d1-402d-87a7-e6d3fd534ba9.jpg`,
+    imageUrl: `${IMG}/4a8f3696-3218-45d2-95e1-9b929d13fc15.jpg`,
   },
   {
     title: "Kabaddi & Running Race Day",
@@ -252,17 +252,11 @@ function galleryFromFolder() {
     "img-8": "Sports",
     "img-9": "Campus",
     director: "Campus",
-    principal: "Campus",
-    flyer: "Events",
     "022d2833": "Campus",
     "29d566bc": "Classroom",
-    "388ccf81": "Sports",
     "4a8f3696": "Sports",
     "6bcc785f": "Classroom",
-    "81a5ff6a": "Sports",
     d7669cbe: "Campus",
-    e0406a55: "Classroom",
-    e89a1534: "Events",
     ecdad21b: "Campus",
     images1: "Classroom",
     "images 3": "Classroom",
@@ -274,9 +268,11 @@ function galleryFromFolder() {
     "download 9": "Campus",
   };
 
+  const skip = /logo|flyer|gitkeep/i;
+
   return fs
     .readdirSync(dir)
-    .filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f))
+    .filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f) && !skip.test(f))
     .map((file) => {
       const key = Object.keys(categoryMap).find((k) => file.includes(k));
       const category = (key && categoryMap[key]) || "Campus";
