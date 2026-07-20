@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useAuth } from "../../context/AuthContext";
+import SchoolLogo from "../../components/ui/SchoolLogo";
 
 const loginSchema = z.object({
   email: z.string().email("Enter a valid email address"),
@@ -36,9 +37,7 @@ export default function AdminLogin() {
     <div className="min-h-screen bg-primary flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
         <div className="text-center mb-8">
-          <div className="w-14 h-14 bg-accent rounded-full flex items-center justify-center text-primary font-bold text-xl font-heading mx-auto mb-4">
-            RS
-          </div>
+          <SchoolLogo priority className="w-20 h-20 rounded-2xl mx-auto mb-4 shadow-md" />
           <h1 className="font-heading font-bold text-2xl text-primary">Admin Login</h1>
           <p className="text-gray-500 text-sm mt-1">Rising Star Public School — Management Panel</p>
         </div>

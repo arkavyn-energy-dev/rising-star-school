@@ -28,6 +28,16 @@
     height: auto;
     display: block;
   }
+
+  /* Keep logo sharp & same aspect on every screen (override global img max-width) */
+  img.school-logo {
+    max-width: none;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    -ms-interpolation-mode: bicubic;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
   h1,
   h2,
   h3,

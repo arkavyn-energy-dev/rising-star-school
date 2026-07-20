@@ -1,5 +1,6 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import SchoolLogo from "../ui/SchoolLogo";
 
 const navItems = [
   { to: "/admin", label: "Dashboard", icon: "📊", end: true },
@@ -30,9 +31,7 @@ export default function AdminLayout() {
       <aside className="w-64 bg-primary text-white flex-shrink-0 hidden md:flex flex-col">
         <div className="p-6 border-b border-white/10">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-primary font-bold font-heading">
-              RS
-            </div>
+            <SchoolLogo className="w-10 h-10 rounded-lg" />
             <div>
               <p className="font-heading font-bold text-sm leading-tight">Admin Panel</p>
               <p className="text-white/50 text-xs">Rising Star Public School</p>

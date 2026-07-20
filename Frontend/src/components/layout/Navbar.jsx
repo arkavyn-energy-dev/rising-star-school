@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSiteSettings } from "../../context/SiteSettingsContext";
 import { useAdmissionModal } from "../../context/AdmissionModalContext";
+import SchoolLogo from "../ui/SchoolLogo";
 
 const primaryLinks = [
   { to: "/", label: "Home" },
@@ -74,11 +75,12 @@ export default function Navbar() {
           scrolled ? "glass shadow-glass" : "bg-white/90 backdrop-blur-md border border-white/70 shadow-soft"
         }`}
       >
-        <div className="flex items-center justify-between h-12 lg:h-[52px] px-3 lg:px-4">
-          <Link to="/" className="flex items-center gap-2 shrink-0 min-w-0 group">
-            <div className="w-8 h-8 bg-gradient-to-br from-brand to-brand-dark rounded-lg flex items-center justify-center text-white font-bold text-xs font-heading shrink-0 shadow-sm group-hover:shadow-md transition-shadow">
-              RS
-            </div>
+        <div className="flex items-center justify-between h-14 lg:h-[56px] px-3 lg:px-4">
+          <Link to="/" className="flex items-center gap-2.5 shrink-0 min-w-0 group" aria-label="Rising Star Public School — Home">
+            <SchoolLogo
+              priority
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg shadow-sm ring-1 ring-black/5 group-hover:shadow-md transition-shadow"
+            />
             <p className="hidden md:block text-ink font-heading font-bold text-[13px] truncate max-w-[140px] lg:max-w-[200px] group-hover:text-brand transition-colors">
               {settings?.schoolName || "Rising Star Public School"}
             </p>

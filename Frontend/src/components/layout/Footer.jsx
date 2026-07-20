@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useSiteSettings } from "../../context/SiteSettingsContext";
+import SchoolLogo from "../ui/SchoolLogo";
 
 export default function Footer() {
   const { settings } = useSiteSettings();
@@ -12,9 +13,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white font-bold text-lg font-heading">
-                RS
-              </div>
+              <SchoolLogo className="w-11 h-11 rounded-lg ring-1 ring-white/10" />
               <h3 className="font-heading font-bold text-lg">{settings?.schoolName || "Rising Star Public School"}</h3>
             </div>
             <p className="text-white/50 text-sm leading-relaxed">{settings?.description}</p>

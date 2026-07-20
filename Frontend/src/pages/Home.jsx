@@ -11,6 +11,7 @@ import ImageWithFallback from "../components/ui/ImageWithFallback";
 import TiltCard from "../components/ui/TiltCard";
 import GridBackground from "../components/ui/GridBackground";
 import FacilitiesSection from "../components/ui/FacilitiesSection";
+import SchoolLogo from "../components/ui/SchoolLogo";
 import { HeroSkeleton, CardSkeleton, StatsSkeleton } from "../components/ui/SkeletonLoader";
 import { useSiteSettings } from "../context/SiteSettingsContext";
 import { useAdmissionModal } from "../context/AdmissionModalContext";
@@ -55,9 +56,7 @@ function HeroVisual({ settings }) {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/5 to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 glass rounded-2xl p-4 flex items-center gap-3">
-              <div className="w-11 h-11 rounded-xl bg-accent flex items-center justify-center text-white font-heading font-bold flex-shrink-0">
-                RS
-              </div>
+              <SchoolLogo className="w-11 h-11 rounded-xl flex-shrink-0 shadow-sm" />
               <div className="min-w-0">
                 <p className="text-ink font-heading font-semibold text-sm truncate">
                   {settings?.schoolName || "Rising Star Public School"}
