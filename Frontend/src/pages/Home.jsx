@@ -101,17 +101,13 @@ function HeroSection({ settings }) {
       <GridBackground />
 
       <div className="container-custom relative z-10 py-12 sm:py-16 lg:py-28">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
-          {/* Image first on phone so it is always visible */}
-          <div className="order-1 lg:order-2">
-            <HeroVisual settings={settings} />
-          </div>
-
+        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-center">
+          {/* Content LEFT */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={heroStagger}
-            className="order-2 lg:order-1 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left"
+            className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left"
           >
             <motion.div variants={heroItem} className="inline-flex items-center gap-2 border border-accent/25 bg-accent/[0.06] rounded-full px-4 py-1.5 mb-6 lg:mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-dot" />
@@ -159,6 +155,11 @@ function HeroSection({ settings }) {
               </motion.div>
             )}
           </motion.div>
+
+          {/* Image RIGHT — visible on phone + laptop */}
+          <div className="w-full">
+            <HeroVisual settings={settings} />
+          </div>
         </div>
       </div>
     </section>

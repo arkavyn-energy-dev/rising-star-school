@@ -136,10 +136,10 @@ const siteSettings = {
       "To provide affordable, quality English-medium education in a safe and caring environment where every child feels valued, learns with confidence, and develops strong character alongside academic skills.",
     vision:
       "To become Bettiah's most trusted growing school — where dedicated teachers, modern facilities, and a supportive community help every student shine academically and personally.",
-    principalName: "Bablu Kumar",
+    principalName: "Ravikesh Tiwari",
     principalMessage:
       "Dear Parents and Students, welcome to Rising Star Public School. As Principal, I am committed to creating a positive learning atmosphere where children enjoy coming to school every day. We focus on clear teaching, regular practice, discipline, and respect. Though our school is young, we are building step by step — stronger academics, better facilities, and more opportunities for our students. Thank you for trusting us with your child's education.",
-    principalPhoto: "",
+    principalPhoto: `${IMG}/img-9-principal.jpg`,
     directorName: "Sonu Mishra",
     directorMessage:
       "Welcome to Rising Star Public School. As Director, my goal is to build a school that Bettiah families can trust — with honest communication, caring teachers, and steady improvement every year. We started in 2022 with a vision to give children quality English-medium education close to home. Facilities like transport, computer education, and sports are being expanded as we grow. I invite you to visit our campus and become part of the Rising Star family.",
@@ -222,7 +222,7 @@ const announcements = [
 ];
 
 const faculty = [
-  { name: "Bablu Kumar", designation: "Principal", subject: "School Administration", qualification: "B.Ed.", order: 1, imageUrl: "" },
+  { name: "Ravikesh Tiwari", designation: "Principal", subject: "School Administration", qualification: "B.Ed.", order: 1, imageUrl: `${IMG}/img-9-principal.jpg` },
   { name: "Mrs. Priya Singh", designation: "Senior Teacher", subject: "English", qualification: "M.A., B.Ed.", order: 2 },
   { name: "Mr. Rajesh Tiwari", designation: "Teacher", subject: "Mathematics", qualification: "B.Sc., B.Ed.", order: 3 },
   { name: "Mrs. Sunita Devi", designation: "Teacher", subject: "Hindi", qualification: "M.A. Hindi, B.Ed.", order: 4 },
@@ -266,7 +266,7 @@ function galleryFromFolder() {
     "images 8": "Sports",
   };
 
-  const skip = /logo|flyer|gitkeep/i;
+  const skip = /logo|flyer|gitkeep|img-9-principal/i;
 
   return fs
     .readdirSync(dir)
