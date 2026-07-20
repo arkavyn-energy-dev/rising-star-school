@@ -6,6 +6,7 @@ import ScrollToTop from "./ScrollToTop";
 import ScrollToTopOnNavigate from "./ScrollToTopOnNavigate";
 import ScrollProgress from "./ScrollProgress";
 import BackgroundFX from "../ui/BackgroundFX";
+import SchoolChatBot from "../ui/SchoolChatBot";
 
 export default function MainLayout() {
   return (
@@ -22,6 +23,7 @@ export default function MainLayout() {
       </main>
       <Footer />
       <ScrollToTop />
+      <SchoolChatBot />
     </div>
   );
 }

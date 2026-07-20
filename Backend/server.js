@@ -25,6 +25,7 @@ const newsletterRoutes = require("./routes/newsletterRoutes");
 const jobApplicationRoutes = require("./routes/jobApplicationRoutes");
 const testRoutes = require("./routes/testRoutes");
 const testAttemptRoutes = require("./routes/testAttemptRoutes");
+const chatbotRoutes = require("./routes/chatbotRoutes");
 
 connectDB();
 
@@ -93,6 +94,7 @@ app.use("/api/newsletter", newsletterRoutes);
 app.use("/api/careers", jobApplicationRoutes);
 app.use("/api/tests", testRoutes);
 app.use("/api/test-attempts", testAttemptRoutes);
+app.use("/api/chatbot", chatbotRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
