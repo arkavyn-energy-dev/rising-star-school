@@ -37,52 +37,56 @@ function HeroVisual({ settings }) {
   const yearsActive = settings?.establishedYear ? new Date().getFullYear() - settings.establishedYear : 15;
 
   return (
-    <div className="relative hidden lg:block">
-      <div className="absolute -top-10 -right-8 w-[26rem] h-[26rem] bg-accent/[0.14] rounded-full blur-[90px]" aria-hidden="true" />
+    <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[380px] mx-auto">
+      <div className="absolute -top-8 -right-6 w-56 h-56 sm:w-72 sm:h-72 bg-accent/[0.14] rounded-full blur-[70px]" aria-hidden="true" />
       <motion.div
-        initial={{ opacity: 0, scale: 0.94, y: 24 }}
+        initial={{ opacity: 0, scale: 0.96, y: 16 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut", delay: 0.35 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
         className="relative"
       >
-        <TiltCard className="rounded-[2rem] overflow-hidden border border-white/60 shadow-glass" strength={6}>
-          <div className="relative h-[420px]">
-            <ImageWithFallback 
-              src="/school-images/ecdad21b-0b6a-4838-bd5a-b5a87813f7c4.jpg" 
-              alt="Rising Star Public School campus" 
-              className="absolute inset-0 w-full h-full object-cover"
-              priority={true}
-              aspectRatio="16/9"
+        <TiltCard className="rounded-2xl sm:rounded-[2rem] overflow-hidden border border-white/60 shadow-glass" strength={4}>
+          {/* Portrait campus photo (900×1600) — object-contain so full image shows, not cropped */}
+          <div className="relative w-full aspect-[9/16] bg-ink/[0.04]">
+            <img
+              src="/school-images/ecdad21b-0b6a-4838-bd5a-b5a87813f7c4.jpg"
+              alt="Rising Star Public School campus"
+              width={900}
+              height={1600}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+              className="absolute inset-0 w-full h-full object-contain object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/5 to-transparent" />
-            <div className="absolute bottom-5 left-5 right-5 glass rounded-2xl p-4 flex items-center gap-3">
-              <SchoolLogo className="w-11 h-11 rounded-xl flex-shrink-0 shadow-sm" />
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/75 via-ink/20 to-transparent pointer-events-none" />
+            <div className="absolute bottom-3 left-3 right-3 sm:bottom-5 sm:left-5 sm:right-5 glass rounded-xl sm:rounded-2xl p-3 sm:p-4 flex items-center gap-2.5 sm:gap-3">
+              <SchoolLogo className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl flex-shrink-0 shadow-sm" />
               <div className="min-w-0">
-                <p className="text-ink font-heading font-semibold text-sm truncate">
+                <p className="text-ink font-heading font-semibold text-xs sm:text-sm truncate">
                   {settings?.schoolName || "Rising Star Public School"}
                 </p>
-                <p className="text-ink/50 text-xs truncate">{settings?.tagline || "Nurturing Minds, Shaping Futures"}</p>
+                <p className="text-ink/50 text-[10px] sm:text-xs truncate">{settings?.tagline || "Nurturing Minds, Shaping Futures"}</p>
               </div>
             </div>
           </div>
         </TiltCard>
 
         <motion.div
-          className="absolute -top-6 -left-8 glass rounded-2xl px-4 py-3 shadow-lift"
-          animate={{ y: [0, -10, 0] }}
+          className="hidden sm:block absolute -top-4 -left-4 lg:-top-6 lg:-left-8 glass rounded-2xl px-3 py-2 lg:px-4 lg:py-3 shadow-lift"
+          animate={{ y: [0, -8, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
-          <p className="font-heading font-extrabold text-xl text-ink leading-none">CBSE</p>
-          <p className="text-ink/45 text-[11px] uppercase tracking-wide mt-0.5">Affiliated</p>
+          <p className="font-heading font-extrabold text-lg lg:text-xl text-ink leading-none">CBSE</p>
+          <p className="text-ink/45 text-[10px] lg:text-[11px] uppercase tracking-wide mt-0.5">Affiliated</p>
         </motion.div>
 
         <motion.div
-          className="absolute -bottom-7 -right-6 glass rounded-2xl px-4 py-3 shadow-lift"
-          animate={{ y: [0, 12, 0] }}
+          className="hidden sm:block absolute -bottom-4 -right-3 lg:-bottom-7 lg:-right-6 glass rounded-2xl px-3 py-2 lg:px-4 lg:py-3 shadow-lift"
+          animate={{ y: [0, 10, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         >
-          <p className="font-heading font-extrabold text-xl text-ink leading-none">{yearsActive}+</p>
-          <p className="text-ink/45 text-[11px] uppercase tracking-wide mt-0.5">Years of Excellence</p>
+          <p className="font-heading font-extrabold text-lg lg:text-xl text-ink leading-none">{yearsActive}+</p>
+          <p className="text-ink/45 text-[10px] lg:text-[11px] uppercase tracking-wide mt-0.5">Years Growing</p>
         </motion.div>
       </motion.div>
     </div>
@@ -93,46 +97,56 @@ function HeroSection({ settings }) {
   const { openAdmissionModal } = useAdmissionModal();
 
   return (
-    <section className="relative bg-paper min-h-[640px] lg:min-h-[720px] flex items-center overflow-hidden">
+    <section className="relative bg-paper flex items-center overflow-hidden">
       <GridBackground />
 
-      <div className="container-custom relative z-10 py-24 lg:py-32">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
-          <motion.div initial="hidden" animate="visible" variants={heroStagger} className="max-w-2xl">
-            <motion.div variants={heroItem} className="inline-flex items-center gap-2 border border-accent/25 bg-accent/[0.06] rounded-full px-4 py-1.5 mb-8">
+      <div className="container-custom relative z-10 py-12 sm:py-16 lg:py-28">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
+          {/* Image first on phone so it is always visible */}
+          <div className="order-1 lg:order-2">
+            <HeroVisual settings={settings} />
+          </div>
+
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={heroStagger}
+            className="order-2 lg:order-1 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left"
+          >
+            <motion.div variants={heroItem} className="inline-flex items-center gap-2 border border-accent/25 bg-accent/[0.06] rounded-full px-4 py-1.5 mb-6 lg:mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-dot" />
               <span className="text-accent text-sm font-medium">Admissions Open 2026-27</span>
             </motion.div>
 
             <motion.h1
               variants={heroItem}
-              className="font-heading font-extrabold text-5xl md:text-6xl lg:text-[4.2rem] text-ink leading-[1.05] tracking-tight mb-7"
+              className="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] text-ink leading-[1.05] tracking-tight mb-5 lg:mb-7"
             >
               Empowering Young Minds,
               <br />
               <span className="text-gradient">Building Bright Futures</span>
             </motion.h1>
 
-            <motion.p variants={heroItem} className="text-ink/55 text-base md:text-lg leading-relaxed mb-10 max-w-xl">
+            <motion.p variants={heroItem} className="text-ink/55 text-sm sm:text-base md:text-lg leading-relaxed mb-8 lg:mb-10 max-w-xl mx-auto lg:mx-0">
               {settings?.description}
             </motion.p>
 
-            <motion.div variants={heroItem} className="flex flex-wrap gap-4">
+            <motion.div variants={heroItem} className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
               <motion.button
                 onClick={openAdmissionModal}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.97 }}
-                className="btn-primary text-base"
+                className="btn-primary text-sm sm:text-base"
               >
                 Apply Now →
               </motion.button>
-              <Link to="/about" className="btn-outline text-base">
+              <Link to="/about" className="btn-outline text-sm sm:text-base">
                 Explore More
               </Link>
             </motion.div>
 
             {settings?.stats?.length > 0 && (
-              <motion.div variants={heroItem} className="flex flex-wrap items-center gap-x-8 gap-y-3 mt-12 pt-8 border-t border-ink/10">
+              <motion.div variants={heroItem} className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-3 mt-10 lg:mt-12 pt-8 border-t border-ink/10">
                 {settings.stats.slice(0, 3).map((stat, i) => (
                   <div key={i}>
                     <p className="font-heading font-extrabold text-2xl text-ink">
@@ -145,8 +159,6 @@ function HeroSection({ settings }) {
               </motion.div>
             )}
           </motion.div>
-
-          <HeroVisual settings={settings} />
         </div>
       </div>
     </section>
