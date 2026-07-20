@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { askChatbot } from "../../services/chatbotService";
 
 const SUGGESTIONS = [
@@ -12,6 +13,7 @@ export default function SchoolChatBot() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [messages, setMessages] = useState([
     {
       role: "assistant",
@@ -21,6 +23,10 @@ export default function SchoolChatBot() {
   ]);
   const bottomRef = useRef(null);
   const inputRef = useRef(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (open) {
@@ -63,14 +69,17 @@ export default function SchoolChatBot() {
     send(input);
   };
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <>
-      {/* Floating button */}
+      {/* Always fixed to viewport — every page, even while scrolling */}
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close school chat" : "Open school chat"}
-        className="fixed bottom-5 right-5 z-[70] w-14 h-14 rounded-full bg-brand text-white shadow-lift flex items-center justify-center hover:bg-brand-dark transition-colors"
+        className="fixed bottom-5 right-5 z-[9999] w-14 h-14 rounded-full bg-brand text-white shadow-lift flex items-center justify-center hover:bg-brand-dark transition-colors"
+        style={{ position: "fixed", bottom: "1.25rem", right: "1.25rem" }}
       >
         {open ? (
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -89,11 +98,12 @@ export default function SchoolChatBot() {
 
       {open && (
         <div
-          className="fixed bottom-24 right-5 z-[70] w-[min(100vw-1.5rem,22rem)] h-[min(70vh,32rem)] bg-white rounded-2xl shadow-2xl border border-neutral-200 flex flex-col overflow-hidden"
+          className="fixed z-[9999] w-[min(100vw-1.5rem,22rem)] h-[min(70vh,32rem)] bg-white rounded-2xl shadow-2xl border border-neutral-200 flex flex-col overflow-hidden"
+          style={{ position: "fixed", bottom: "5.5rem", right: "1.25rem" }}
           role="dialog"
           aria-label="Rising Star school chatbot"
         >
-          <div className="bg-ink text-white px-4 py-3 flex items-center gap-3">
+          <div className="bg-ink text-white px-4 py-3 flex items-center gap-3 shrink-0">
             <div className="w-9 h-9 rounded-full bg-accent/20 flex items-center justify-center text-accent font-heading font-bold text-sm">
               AI
             </div>
@@ -128,7 +138,7 @@ export default function SchoolChatBot() {
           </div>
 
           {messages.length <= 2 && (
-            <div className="px-3 pb-2 flex flex-wrap gap-1.5">
+            <div className="px-3 pb-2 flex flex-wrap gap-1.5 shrink-0">
               {SUGGESTIONS.map((s) => (
                 <button
                   key={s}
@@ -143,7 +153,7 @@ export default function SchoolChatBot() {
             </div>
           )}
 
-          <form onSubmit={onSubmit} className="p-3 border-t border-neutral-100 flex gap-2 bg-white">
+          <form onSubmit={onSubmit} className="p-3 border-t border-neutral-100 flex gap-2 bg-white shrink-0">
             <input
               ref={inputRef}
               value={input}
@@ -166,6 +176,7 @@ export default function SchoolChatBot() {
           </form>
         </div>
       )}
-    </>
+    </>,
+    document.body
   );
 }

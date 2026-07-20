@@ -10,7 +10,7 @@ import SchoolChatBot from "../ui/SchoolChatBot";
 
 export default function MainLayout() {
   return (
-    <div className="min-h-screen flex flex-col" style={{ willChange: 'transform' }}>
+    <div className="min-h-screen flex flex-col">
       <BackgroundFX />
       <ScrollToTopOnNavigate />
       <ScrollProgress />
@@ -18,7 +18,7 @@ export default function MainLayout() {
         <AdmissionBanner />
         <Navbar />
       </div>
-      <main className="flex-1 pt-[96px] lg:pt-[108px]" style={{ willChange: 'contents', transform: 'translateZ(0)' }}>
+      <main className="flex-1 pt-[96px] lg:pt-[108px]">
         <Outlet />
       </main>
       <Footer />
